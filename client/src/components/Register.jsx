@@ -1,57 +1,4 @@
-// import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import api from '../api';
 
-// const Register = () => {
-//   const [name, setName] = useState('');
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-//   const [error, setError] = useState(null);
-//   const navigate = useNavigate();
-
-//   const handleRegister = async (e) => {
-//     e.preventDefault();
-//     try {
-//       await api.post('http://localhost:5000/api/register', { name, email, password });
-//       navigate('/login'); // Redirect to login page after successful registration
-//     } catch (err) {
-//       setError('Error registering user');
-//     }
-//   };
-
-//   return (
-//     <div className="register-container">
-//       <form onSubmit={handleRegister}>
-//         <h2>Register</h2>
-//         {error && <p className="error">{error}</p>}
-//         <input
-//           type="text"
-//           placeholder="Name"
-//           value={name}
-//           onChange={(e) => setName(e.target.value)}
-//           required
-//         />
-//         <input
-//           type="email"
-//           placeholder="Email"
-//           value={email}
-//           onChange={(e) => setEmail(e.target.value)}
-//           required
-//         />
-//         <input
-//           type="password"
-//           placeholder="Password"
-//           value={password}
-//           onChange={(e) => setPassword(e.target.value)}
-//           required
-//         />
-//         <button type="submit">Register</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default Register;
 
 
 
@@ -70,7 +17,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await api.post('http://localhost:5000/api/register', { name, email, password });
+      await api.post('https://apartment-renting.vercel.app/api/register', { name, email, password });
       navigate('/login'); // Redirect to login page after successful registration
     } catch (err) {
       setError('Error registering user');

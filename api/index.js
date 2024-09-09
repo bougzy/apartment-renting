@@ -12,7 +12,7 @@ app.use(express.json());
 
 // Configure CORS to allow requests from your frontend domain
 const corsOptions = {
-    origin: 'http://localhost:5173', // Frontend URL
+    origin: 'https://rentingapartment.vercel.app', // Frontend URL
     methods: 'GET,POST,PUT,DELETE',
     allowedHeaders: 'Content-Type,Authorization',
   };
