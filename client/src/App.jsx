@@ -1,5 +1,4 @@
 import { Routes, Route} from "react-router-dom"
-import AdminLogin from './components/AdminLogin';
 import Login from './components/Login';
 import AdminDashboard from './components/AdminDashboard';
 import TenantDashboard from './components/TenantDashboard';
@@ -18,7 +17,6 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/tenant-dashboard" element={<TenantDashboard />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
-        <Route path="/admin-login" element={<AdminLogin />} /> {/* New Admin Login Route */}
       </Routes>
       <Footer />
     </>
