@@ -1,0 +1,13 @@
+{
+  "name": "project-root",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node api/index.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run client\" \"npm run server\"",
+    "server": "cd server && npm start"
+  },
+  "dependencies": {
+    "concurrently": "^7.1.0"
+  }
+}
