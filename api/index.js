@@ -11,13 +11,42 @@ const app = express();
 app.use(express.json());
 
 // Configure CORS to allow requests from your frontend domain
-const corsOptions = {
-    origin: 'https://rentingapartment.vercel.app', // Frontend URL
-    methods: 'GET,POST,PUT,DELETE',
-    allowedHeaders: 'Content-Type,Authorization',
-  };
-  app.use(cors(corsOptions));
+// const corsOptions = {
+//     origin: 'https://rentingapartment.vercel.app', // Frontend URL
+//     methods: 'GET,POST,PUT,DELETE',
+//     allowedHeaders: 'Content-Type,Authorization',
+//   };
+//   app.use(cors(corsOptions));
   
+
+
+// Define multiple allowed origins
+const allowedOrigins = [
+  'https://rentingapartment.vercel.app',
+  'https://rentingapartment.vercel.app/register',
+  'https://rentingapartment.vercel.app/login'
+];
+
+// Configure CORS options
+const corsOptions = {
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      // Allow requests with no origin (like mobile apps or curl requests) or requests from allowed origins
+      callback(null, true);
+    } else {
+      // Disallow requests from other origins
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+};
+
+// Use CORS middleware with options
+app.use(cors(corsOptions));
+
+
+
 
 const JWT_SECRET = 'o1qzmQE89p';
 
