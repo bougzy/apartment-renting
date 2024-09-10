@@ -399,8 +399,8 @@ app.use(express.json());
 // Define multiple allowed origins
 const allowedOrigins = [
   'https://rentingapartment.vercel.app',
-  'https://apartment-renting.vercel.app/api/register',
-  'https://rentingapartment.vercel.app/api/login'
+  'https://apartment-renting.vercel.app/register',
+  'https://apartment-renting.vercel.app/login'
 ];
 
 // Configure CORS options
