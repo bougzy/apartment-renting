@@ -586,6 +586,11 @@ app.put('/api/admin/manage-rent/:rentId', authMiddleware, async (req, res) => {
   res.send(`Rent payment has been ${status}`);
 });
 
+// // Root route
+app.get('/', (req, res) => {
+  res.send('Welcome to the Apartment Renting API');
+});
+
 // Admin views all rent payments
 app.get('/api/admin/rent-payments', authMiddleware, async (req, res) => {
   if (req.user.role !== 'admin') return res.status(403).send('Access denied');
