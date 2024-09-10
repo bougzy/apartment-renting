@@ -104,15 +104,27 @@ const Register = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  // const handleRegister = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     await api.post('https://apartment-renting.vercel.app/api/register', { name, email, password });
+  //     navigate('/login'); // Redirect to login page after successful registration
+  //   } catch (err) {
+  //     setError('Error registering user');
+  //   }
+  // };
+
+
   const handleRegister = async (e) => {
-    e.preventDefault();
-    try {
-      await api.post('https://apartment-renting.vercel.app/api/register', { name, email, password });
-      navigate('/login'); // Redirect to login page after successful registration
-    } catch (err) {
-      setError('Error registering user');
-    }
-  };
+  e.preventDefault();
+  try {
+    await api.post('https://apartment-renting.vercel.app/api/register', { name, email, password });
+    navigate('/login'); // Redirect to login page after successful registration
+  } catch (err) {
+    setError('Error registering user');
+  }
+};
+
 
   return (
     <Container fluid className="d-flex justify-content-center align-items-center vh-100 bg-light">
