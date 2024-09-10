@@ -399,6 +399,7 @@ app.use(express.json());
 // Define multiple allowed origins
 const allowedOrigins = [
    'https://rentingapartment.vercel.app',
+   'http://localhost:5173',
   'https://rentingapartment.vercel.app/register',
   'https://rentingapartment.vercel.app/login'
 ];
@@ -654,6 +655,11 @@ app.get('/api/admin/apartments', authMiddleware, async (req, res) => {
 
   const apartments = await Apartment.find();
   res.json(apartments);
+});
+
+app.use(express.static(path.join(__dirname, "/client/dist")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 });
 
 // Start the server
