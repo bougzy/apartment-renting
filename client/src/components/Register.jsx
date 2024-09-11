@@ -118,7 +118,7 @@ const Register = () => {
   const handleRegister = async (e) => {
   e.preventDefault();
   try {
-    await api.post('https://apartment-renting.vercel.app/api/register', { name, email, password });
+    await api.post('/register', { name, email, password });
     navigate('/login'); // Redirect to login page after successful registration
   } catch (err) {
     setError('Error registering user');

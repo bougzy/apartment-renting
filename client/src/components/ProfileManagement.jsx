@@ -151,7 +151,7 @@ const ProfileManagement = () => {
 
   const handleUpdate = async () => {
     try {
-      await api.put('/api/profile', { name, email, password }); // Adjusted endpoint
+      await api.put('/profile', { name, email, password }); // Adjusted endpoint
       setUser((prevUser) => ({ ...prevUser, name, email }));
       setPassword(''); // Clear password field
       setSuccessMessage('Profile updated successfully!');
@@ -164,7 +164,7 @@ const ProfileManagement = () => {
   const handleDelete = async () => {
     if (window.confirm('Are you sure you want to delete your profile?')) {
       try {
-        await api.delete('/api/profile'); // Adjusted endpoint
+        await api.delete('/profile'); // Adjusted endpoint
         // Optionally, redirect user to login page or show a success message
       } catch (error) {
         console.error('Error deleting profile:', error);
