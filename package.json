@@ -1,8 +1,8 @@
 {
-  "name": "mern-app",
+  "name": "apartment-renting",
   "version": "1.0.0",
   "description": "A MERN stack application combining backend and frontend",
-  "main": "api/index.js",
+  "main": "index.js",
  "scripts": {
     "start": "node index.js",
     "build": "npm install && npm install --prefix client && npm run build --prefix client"
