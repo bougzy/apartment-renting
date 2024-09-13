@@ -3,12 +3,9 @@
   "version": "1.0.0",
   "description": "A MERN stack application combining backend and frontend",
   "main": "api/index.js",
-  "scripts": {
-    "start": "node api/index.js",
-    "server": "nodemon api/index.js",
-    "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run api\" \"npm run client\"",
-    "build": "npm run build --prefix frontend"
+ "scripts": {
+    "start": "node index.js",
+    "build": "npm install && npm install --prefix client && npm run build --prefix client"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
