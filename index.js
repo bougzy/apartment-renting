@@ -283,6 +283,38 @@ app.get('/api/admin/apartments', authMiddleware, async (req, res) => {
 });
 
 
+// View Assigned Apartment for Tenant
+app.get('/api/tenant/apartment', authMiddleware, async (req, res) => {
+  if (req.user.role !== 'tenant') return res.status(403).send('Access denied');
+
+  try {
+    const user = await User.findById(req.user.id).populate('apartmentId');
+    if (!user) return res.status(404).send('User not found');
+    res.json(user.apartmentId);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+
+// Admin views all maintenance requests
+app.get('/api/admin/maintenance-requests', authMiddleware, async (req, res) => {
+  if (req.user.role !== 'admin') return res.status(403).send('Access denied');
+
+  try {
+    // Find all users with maintenance requests
+    const users = await User.find({ role: 'tenant' }).populate('maintenanceRequests');
+
+    // Aggregate maintenance requests from all tenants
+    const maintenanceRequests = users.flatMap(user => user.maintenanceRequests);
+
+    res.json(maintenanceRequests);
+  } catch (error) {
+    res.status(500).send('Error fetching maintenance requests');
+  }
+});
+
+
 
 
 // Serve static files from the client build directory
